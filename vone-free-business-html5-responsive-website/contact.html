@@ -72,21 +72,100 @@
 			<!-- Article main content -->
 			<article class="col-sm-8 maincontent">
 			
-					<form>
+					<form action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+						  method="POST">
+						<!-- 00D5C0000008w2D = Sales Cloud TEST Sandbox ID -->
+						<input type="hidden"
+							   name="oid"
+							   value="00D5C0000008w2D">
+						<!-- Redirect URL after Form submission -->
+						<input type="hidden"
+							   name="retURL"
+							   value="https://mchrdd4ctrykcg4zrz6jqf0gjkly.pub.sfmc-content.com/pisako0x5s2">
+						<!-- Add email to recieve any error messages during testing -->
+                        <input type="hidden"
+                               name="debug"
+                               value=1>
+                        <input
+                               type="hidden"
+                               name="debugEmail"
+                               value="nedko_nedkov@epam.com">
+						<!-- Population the Lead Source for CRM Lead record -->
+						<input type="hidden"
+							   name="lead_source"
+							   value="B2B_Web">
+						<!-- Indicating that the Lead was creating during Form submission by setting the field B2B_Is_From_Web_Form__c to TRUE-->
+						<input type="hidden"
+							   name="00N5C0000055cu5"
+							   value="true">
+						<!-- Indicating that is NOT B2B_Accupoint_Lead__c -->
+						<input type="hidden"
+							   name="00N5C0000059MJP"
+							   value="No">
+						<!-- Indication the FMO website where the form was submitted for routing in CRM by setting the field B2B_FMO_Web_Form__c with the value from the script -->
+						<input type="hidden"
+							   name="00N5C0000055cu4"
+							   id="00N5C0000055cu4">
 						<div class="row">
 							<div class="col-sm-12">
-								<input class="form-control" type="text" placeholder="Name"><br/>
+								<input class="form-control"
+									   id="first_name"
+									   maxlength="40"
+									   name="first_name"
+									   type="text"
+									   placeholder="First Name"
+									   required><br/>
 							</div>
 							<div class="col-sm-12">
-								<input class="form-control" type="text" placeholder="Email ID"><br/>
+								<input class="form-control"
+									   id="last_name"
+									   maxlength="80"
+									   name="last_name"
+									   type="text"
+									   placeholder="Last Name"
+									   required><br/>
 							</div>
 							<div class="col-sm-12">
-								<input class="form-control" type="text" placeholder="Phone No."><br/>
+								<input class="form-control"
+									   id="email"
+									   maxlength="80"
+									   name="email"
+									   type="text"
+									   placeholder="Email"
+									   required><br/>
+							</div>
+							<div class="col-sm-12">
+								<input class="form-control"
+									   type="text"
+									   placeholder="Phone No."
+									   id="00N5C0000059j0S"
+									   maxlength="40"
+									   name="00N5C0000059j0S"
+									   required><br/>
+							</div>
+							<div class="col-sm-12">
+								<input class="form-control"
+									   type="text"
+									   placeholder="NPN - National Producer Number"
+									   id="00N5C0000059K7C"
+									   maxlength="11"
+									   name="00N5C0000059K7C"><br/>
+							</div>
+							<div class="col-sm-12">
+								<input class="form-control"
+									   placeholder="State"
+									   id="00N5C0000059sZB"
+									   maxlength="255"
+									   name="00N5C0000059sZB"
+									   size="20"
+									   type="text"><br/>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-12">
-								<textarea placeholder="Type your message here..." class="form-control" rows="9"></textarea>
+								<textarea placeholder="Type your message here..."
+										  class="form-control" rows="9"
+										  name="description"></textarea>
 							</div>
 						</div>
 						<br>
@@ -95,9 +174,65 @@
 								<input class="btn btn-action pull-left" type="submit" value="Send message">
 							</div>
 							<div class="col-sm-6 text-right">
-								
+
 							</div>
 						</div>
+						<script>
+							var FMO;
+							var pamURL = 'proadvantagemkt.com';
+							var aaaURL = 'aaamarketingservices.com';
+							var amgURL = 'amerilifemarketinggroup.com';
+							var psmURL = 'psmbrokerage.com';
+							var networkURL = 'nishd.com';
+							var pipURL = 'pip1.com';
+							var midwesternURL = 'midwesternmarketing.com';
+							var tppnURL = 'tppnamerilife.com';
+							var midAtlanticURL = 'almidatlantic.com';
+							var grupoSequrosURL = 'insurancegls.com';
+							var grupoPuertoRicoURL = 'pr.insurancegls.com';
+							var testURL = 'example.com'; <!-- Add value if you need to test with domain not listed	-->
+							var currentUrl = window.location.hostname;
+								if(currentUrl == testURL) {
+								  FMO = ''; <!-- set the value for the tested FMO -->
+								}
+								else if(currentUrl == pamURL) {
+								  FMO = 'PAM';
+								}
+								else if(currentUrl == aaaURL) {
+								  FMO = 'AAA';
+								}
+								else if(currentUrl == amgURL) {
+								  FMO = 'AMG';
+								}
+								else if(currentUrl == psmURL) {
+								  FMO = 'PSM';
+								}
+								else if(currentUrl == networkURL) {
+								  FMO = 'Network';
+								}
+								else if(currentUrl == pipURL) {
+								  FMO = 'PIP';
+								}
+								else if(currentUrl == midwesternURL) {
+								  FMO = 'Midwestern';
+								}
+								else if(currentUrl == tppnURL) {
+								  FMO = 'TPPN';
+								}
+								else if(currentUrl == midAtlanticURL) {
+								  FMO = 'Mid-Atlantic';
+								}
+								else if(currentUrl == grupoSequrosURL) {
+								  FMO = 'GLS';
+								}
+								else if(currentUrl == grupoPuertoRicoURL) {
+								  FMO = 'GLS';
+								}
+								else {
+								  FMO = 'PAM';
+								}
+							document.getElementById('00N5C0000055cu4').value = FMO;
+					</script>
 					</form>
 
 			</article>
